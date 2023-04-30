@@ -29,8 +29,8 @@ public class PositionType {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (!(obj instanceof PositionType)) return false;
-        PositionType that = (PositionType) obj;
-        return getId() == that.getId();
+        PositionType isObject = (PositionType) obj;
+        return getId() == isObject.getId();
     }
 
     @Override
