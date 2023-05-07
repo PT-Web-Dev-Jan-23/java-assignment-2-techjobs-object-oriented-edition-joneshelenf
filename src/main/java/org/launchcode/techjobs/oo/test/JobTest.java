@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo.test;
 
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -38,18 +39,18 @@ public class JobTest {
     assertEquals("Persistence",job3.getCoreCompetency().getValue());
 }
     @Test
+    public void testJobsForEquality() {
+        Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testJob4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertFalse(testJob3.equals(testJob4));
+    }
+    @Test
     public void testToStringStartsAndEndsWithNewLine() {
         Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals('\n', job1.toString().charAt(0));
         assertEquals('\n', job1.toString().charAt(job1.toString().length() - 1));
     }
 
-    @Test
-    public void testJobsForEquality() {
-        Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Job testJob4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertFalse(testJob3.equals(testJob4));
-    }
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job job3 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
