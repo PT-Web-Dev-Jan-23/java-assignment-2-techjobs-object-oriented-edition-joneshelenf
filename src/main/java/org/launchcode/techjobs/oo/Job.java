@@ -23,14 +23,40 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        if (name == null || name.isEmpty()) {
+            this.name = "Data not available.";
+        } else {
+            this.name = name;
+        }
+        if (employer == null || employer.getValue() == null || employer.getValue().isEmpty()) {
+            this.employer = new Employer("Data not available.");
+        } else {
+            this.employer = employer;
+        }
+        if (location == null || location.getValue() == null || location.getValue().isEmpty()) {
+            this.location = new Location("Data not available.");
+        } else {
+            this.location = location;
+        }
+        if (positionType == null || positionType.getValue() == null || positionType.getValue().isEmpty()) {
+            this.positionType = new PositionType("Data not available.");
+        } else {
+            this.positionType = positionType;
+        }
+        if (coreCompetency == null || coreCompetency.getValue() == null || coreCompetency.getValue().isEmpty()) {
+            this.coreCompetency = new CoreCompetency("Data not available.");
+        } else {
+            this.coreCompetency = coreCompetency;
+        }
     }
+//        this.name = name;
+//        this.employer = employer;
+//        this.location = location;
+//        this.positionType = positionType;
+//        this.coreCompetency = coreCompetency;
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,42 +121,6 @@ public class Job {
 
     @Override
     public String toString() {
-
-        String jobName;
-        if (name == null || name.isEmpty()) {
-            jobName = "Data not available";
-        } else {
-            jobName = name;
-        }
-
-        String jobEmployer;
-        if (employer == null || employer.getValue() == null) {
-            jobEmployer = "Data not available";
-        } else {
-            jobEmployer = employer.getValue();
-        }
-
-        String jobLocation;
-        if (location == null || location.getValue() == null) {
-            jobLocation = "Data not available.";
-        } else {
-            jobLocation = location.getValue();
-        }
-
-        String jobPositionType;
-        if (positionType == null || positionType.getValue() == null){
-            jobPositionType = "Data not available.";
-        } else {
-            jobPositionType = positionType.getValue();
-        }
-
-        String jobCoreCompetency;
-        if (coreCompetency == null || coreCompetency.getValue() == null){
-            jobCoreCompetency = "Data not available.";
-        } else {
-            jobCoreCompetency = coreCompetency.getValue();
-        }
-
         return "\n" +
                 "ID: " + id +
                 "\nName: " + name +
