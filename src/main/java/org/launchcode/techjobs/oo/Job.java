@@ -52,6 +52,7 @@ public class Job {
         return name;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
@@ -94,6 +95,42 @@ public class Job {
 
     @Override
     public String toString() {
+
+        String jobName;
+        if (name == null || name.isEmpty()) {
+            jobName = "Data not available";
+        } else {
+            jobName = name;
+        }
+
+        String jobEmployer;
+        if (employer == null || employer.getValue() == null) {
+            jobEmployer = "Data not available";
+        } else {
+            jobEmployer = employer.getValue();
+        }
+
+        String jobLocation;
+        if (location == null || location.getValue() == null) {
+            jobLocation = "Data not available.";
+        } else {
+            jobLocation = location.getValue();
+        }
+
+        String jobPositionType;
+        if (positionType == null || positionType.getValue() == null){
+            jobPositionType = "Data not available.";
+        } else {
+            jobPositionType = positionType.getValue();
+        }
+
+        String jobCoreCompetency;
+        if (coreCompetency == null || coreCompetency.getValue() == null){
+            jobCoreCompetency = "Data not available.";
+        } else {
+            jobCoreCompetency = coreCompetency.getValue();
+        }
+
         return "\n" +
                 "ID: " + id +
                 "\nName: " + name +

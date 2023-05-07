@@ -7,7 +7,7 @@ import org.junit.runners.JUnit4;
 import org.launchcode.techjobs.oo.*;
 
 import static junit.framework.TestCase.*;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotEquals;import static org.junit.Assert.assertEquals;
 
 /**
  * Created by LaunchCode
@@ -51,17 +51,21 @@ public class JobTest {
         assertEquals('\n', job1.toString().charAt(job1.toString().length() - 1));
     }
 
+
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job job3 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\nID: " + job3.getId() + "\nName: Product Tester\nEmployer: ACME \nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job3.toString());
 
+        String expectedOutput = "\nID: " + job3.getId() + "\nName: Product Tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n";
+        assertEquals(expectedOutput, job3.toString());
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job3 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType(""), new CoreCompetency(""));
-        assertEquals("\nID: " + job3.getId() + "\nName: Product Tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Data not available\nCore Competency: Data Not available\n", job3.toString());
+        Job jobName = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
+        String expectedOutput = "\nID: " + jobName.getId() + "\nName: Data not available.\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n";
+        assertEquals(expectedOutput, jobName.toString());
     }
+
 }
