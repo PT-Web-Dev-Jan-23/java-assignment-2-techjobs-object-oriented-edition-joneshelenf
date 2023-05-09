@@ -1,14 +1,14 @@
 package org.launchcode.techjobs.oo.test;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.launchcode.techjobs.oo.*;
 
-import static junit.framework.TestCase.*;
-import static org.junit.Assert.assertNotEquals;import static org.junit.Assert.assertEquals;
-
+//import static junit.framework.TestCase.*;
+import static org.junit.Assert.*;
 /**
  * Created by LaunchCode
  */
@@ -42,7 +42,7 @@ public class JobTest {
     public void testJobsForEquality() {
         Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job testJob4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertFalse(testJob3.equals(testJob4));
+        Assert.assertFalse(testJob3.equals(testJob4));
     }
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
